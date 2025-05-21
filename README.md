@@ -53,7 +53,7 @@ Target Parameters:
 | Woofer LP | C         | 1.5 µF      | Shunt capacitor    |
 | Tweeter HP| C         | 3.0 µF      | Series capacitor   |
 | Tweeter HP| L         | 0.068 mH    | Shunt inductor     |
-| Tweeter HP| R         | 3.3–4.7 Ω   | Series padding resistor (to level match with woofer) |
+
 
 These values were entered into the crossover schematic in VituixCAD and tested with the simulated box response of each driver.
 
