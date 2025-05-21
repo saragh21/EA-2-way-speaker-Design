@@ -34,7 +34,7 @@ Target Parameters:
   \[
   C = \frac{0.2251}{2 \pi f_c \cdot R}
   \]
-
+ 
 #### Tweeter (High-Pass Section)
 - Series **capacitor**:
   \[
@@ -42,8 +42,7 @@ Target Parameters:
   \]
 - Shunt **inductor**:
   \[
-  L = \frac{0.3183 \cdot R}{2 \pi f_c}
-  \]
+- \( L = \frac{0.3183 \cdot 8}{2\pi \cdot 3000} \approx 0.135\,\text{mH} \)
 
 ### Calculated Component Values:
 
