@@ -30,19 +30,10 @@ We evaluated **three** different 2-way passive crossover topologies in VituixCAD
 ### 1) Third-Order Butterworth / Butterworth (18 dB/oct)
 
 - **Woofer:** 3rd-order low-pass Butterworth  
-  \[
-    H_{LP}(s) = \frac{\omega_c^3}{s^3 + 2\sqrt{2}\,\omega_c s^2 + 2\omega_c^2 s + \omega_c^3}
-  \]
+  
 - **Tweeter:** 3rd-order high-pass Butterworth  
-  \[
-    H_{HP}(s) = \frac{s^3}{s^3 + 2\sqrt{2}\,\omega_c s^2 + 2\omega_c^2 s + \omega_c^3}
-  \]
-
-**Why?**  
-A simple “textbook” 18 dB/oct split that’s easy to calculate (via `butter(3,…)`).  Turns out the steep slope protects each driver but leaves a slight dip/phase mismatch at fc.
-
  
-
+  
 ### 2) Linkwitz–Riley Mix: LR2 (Woofer) + LR4 (Tweeter)
 
 - **Woofer:** 2nd-order Linkwitz–Riley low-pass (12 dB/oct)  
