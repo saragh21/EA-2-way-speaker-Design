@@ -16,56 +16,76 @@ This project presents the design, simulation, and analysis of a 2-way passive lo
 - Simulated using VituixCAD Enclosure Tool
 - Resulting SPL, impedance, and phase responses exported to filter design
 
-2. Simulation Crossover Filter (VituixCad): We designed a **2nd-order Butterworth crossover** (12 dB/octave slope) using textbook formulas for passive filters. These components were implemented in VituixCAD and simulated using the measured/simulated responses of the woofer and tweeter.
  
-Target Parameters:
-- Crossover frequency: **fc = 3000 Hz**
-- Woofer impedance: **R1 = 8 Ω**
-- Tweeter impedance: **R2 = 4 Ω**
+## Simulation of Passive Crossover Filters (VituixCAD)
 
-### Formulas for Butterworth 2nd-Order Crossover:
+We evaluated **three** different 2-way passive crossover topologies in VituixCAD, using our measured/simulated woofer and tweeter responses.  All assume:
 
-#### Woofer (Low-Pass Section)
-- Series **inductor**:
+- **Crossover frequency:** fc = 3000 Hz  
+- **Woofer impedance:** R₁ = 8 Ω  
+- **Tweeter impedance:** R₂ = 4 Ω  
+
+
+
+### 1) Third-Order Butterworth / Butterworth (18 dB/oct)
+
+- **Woofer:** 3rd-order low-pass Butterworth  
   \[
-  L = \frac{0.3183 \cdot R}{2 \pi f_c}
+    H_{LP}(s) = \frac{\omega_c^3}{s^3 + 2\sqrt{2}\,\omega_c s^2 + 2\omega_c^2 s + \omega_c^3}
   \]
-- Shunt **capacitor**:
+- **Tweeter:** 3rd-order high-pass Butterworth  
   \[
-  C = \frac{0.2251}{2 \pi f_c \cdot R}
+    H_{HP}(s) = \frac{s^3}{s^3 + 2\sqrt{2}\,\omega_c s^2 + 2\omega_c^2 s + \omega_c^3}
   \]
+
+**Why?**  
+A simple “textbook” 18 dB/oct split that’s easy to calculate (via `butter(3,…)`).  Turns out the steep slope protects each driver but leaves a slight dip/phase mismatch at fc.
+
  
-#### Tweeter (High-Pass Section)
-- Series **capacitor**:
-  \[
-  C = \frac{0.2251}{2 \pi f_c \cdot R}
-  \]
-- Shunt **inductor**:
-   L = \frac{0.3183 \cdot R}{2 \pi f_c}
-  \]
 
-### Calculated Component Values:
+### 2) Linkwitz–Riley Mix: LR2 (Woofer) + LR4 (Tweeter)
 
-| Section   | Component | Value       | Notes              |
-|-----------|-----------|-------------|--------------------|
-| Woofer LP | L         | 0.135 mH    | Series inductor    |
-| Woofer LP | C         | 1.5 µF      | Shunt capacitor    |
-| Tweeter HP| C         | 3.0 µF      | Series capacitor   |
-| Tweeter HP| L         | 0.068 mH    | Shunt inductor     |
+- **Woofer:** 2nd-order Linkwitz–Riley low-pass (12 dB/oct)  
+  – cascade of two 1st-order Butterworths at fc  
+- **Tweeter:** 4th-order Linkwitz–Riley high-pass (24 dB/oct)  
+  – cascade of two 2nd-order Butterworths at fc  
+
+Linkwitz–Riley filters sum **in-phase** at fc, yielding a perfectly flat total amplitude and much better phase alignment than two Butterworths of the same order.
 
 
-These values were entered into the crossover schematic in VituixCAD and tested with the simulated box response of each driver.
 
+### 3) Mixed LR + Shelf Boost (Better Bass)
+
+- **Tweeter:** 4th-order LR high-pass (24 dB/oct)  
+- **Woofer:** 2nd-order LR low-pass (12 dB/oct) **+** 2nd-order low-shelf (+6 dB @ 100 Hz)  
+
+The extra **shelf** stage compensates for baffle/box roll-off, extending and flattening the bass without altering the mid-range crossover.
+
+
+Each topology was built in VituixCAD by dragging in capacitors, inductors and—where needed—a shelving-network (series/parallel RLC).  We then compared:
+
+1. **SPL & summed response**  
+2. **Phase / group-delay**  
+3. **Directivity & CTA-2034 curves**  
+4. **Impedance loading**
+
+the filter components are calculated online by : https://goodcalculators.com/crossover-calculator/
 
 
 3. Digital Crossover Filter (MATLAB)
 - Crossover frequency: 3 kHz
-- Implemented in two methods:
-  - 2nd-order Butterworth IIR filters
-  - Linear-phase FIR filters (100 taps)
+- Three topologies coded:
+
+3rd-order Butterworth (18 dB/oct)
+
+Linkwitz–Riley mix (LR4 tweeter + LR2 woofer)
+
+Mixed LR + 2nd-order low-shelf boost on woofer
+
 - Separate filtering for woofer (low-pass) and tweeter (high-pass)
-- Optional tweeter gain padding for level matching
-- Includes code to visualize magnitude response (linear + log scale)
+
+- Includes code to visualize magnitude response (log scale)
+
 - Passive LCR equivalent circuit documented
    
 4. Measurements & Evaluation
@@ -73,7 +93,7 @@ These values were entered into the crossover schematic in VituixCAD and tested w
 - Digital crossover applied to real measurements and test signals at Aalto Acoustics lab
 - Final system tested in anechoic conditions
 
----
+
 
  
 
