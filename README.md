@@ -1,8 +1,8 @@
 #  2-Way Loudspeaker Project – Aalto University (ELEC-E5650)
-21.05.2025 by Sara Ghorbani
+21.05.2025   
 #
 
-This project presents the design, simulation, and analysis of a 2-way passive loudspeaker system using a woofer and tweeter, including a digitally implemented crossover filter and physical enclosure design. The work was completed as part of the Electroacoustics course at Aalto University.
+Sara Ghorbani: This project presents the design, simulation, and analysis of a 2-way passive loudspeaker system using a woofer and tweeter, including a digitally implemented crossover filter and physical enclosure design. The work was completed as part of the Electroacoustics course at Aalto University.
 
 ---
 
