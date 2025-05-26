@@ -78,12 +78,15 @@ Mixed LR + 2nd-order low-shelf boost on woofer
 - Includes code to visualize magnitude response (log scale)
 
 - Passive LCR equivalent circuit documented
-   
+
+**Gain**
+digitally the gains for the woofer and tweeter were, 0.4 and 0.12 respectively. 
+So the tweeter was attenuated by 20*log_10(0.12/0.4) = -10.45 dB
+Which corresponds to L-pad circuit for a driver with impedance of 4 ohm with resistor of 2.8 ohm in series and 1.7 ohm in parallel
 4. Measurements & Evaluation
 - Simulated SPL, directivity, group delay, and impedance using VituixCAD
 - Digital crossover applied to real measurements and test signals at Aalto Acoustics lab
 - Final system tested in anechoic conditions
-
 
 
  
