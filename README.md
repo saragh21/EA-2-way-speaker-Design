@@ -79,10 +79,19 @@ Mixed LR + 2nd-order low-shelf boost on woofer
 
 - Passive LCR equivalent circuit documented
 
+- Final filters:
+- Woofer:
+  - 1x highpass shelving filter gain -22, 1 slope 1kHz fc
+  - 1x lowpass 2nd order butterworth, 1,7 kHz fc
+- Tweeter:
+  - 1x highpass 1st order butterworth, 2 kHz fc 
+
 **Gain**
-digitally the gains for the woofer and tweeter were, 0.4 and 0.12 respectively. 
-So the tweeter was attenuated by 20*log_10(0.13/0.4) = 9.7 dB
-Which corresponds to L-pad circuit for a driver with impedance of 4 ohm with resistor of 2.8 ohm in series and 1.7 ohm in parallel
+digitally the gains for the woofer and tweeter were, 0.4 and 0.13 respectively. 
+So the tweeter was attenuated by 20*log_10(0.13/0.4) = -9.7 dB
+Which corresponds to L-pad circuit for a driver with impedance of 4 ohm with resistor of 2.69 ohm in series and 1.95 ohm in parallel
+
+
 4. Measurements & Evaluation
 - Simulated SPL, directivity, group delay, and impedance using VituixCAD
 - Digital crossover applied to real measurements and test signals at Aalto Acoustics lab
