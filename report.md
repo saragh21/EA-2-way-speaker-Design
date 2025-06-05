@@ -13,9 +13,13 @@ This report presents the design, implementation and measurements of group 5’s 
 5. Linear distortion 0-2p
   - Tell about the linear distortion behaviour of your loudspeaker.
   - What you did and why to obtain the performance?
+
+![Linear directivity](https://github.com/saragh21/EA-2-way-speaker-Design/blob/main/g5_ldnlfp.svg)
+
 6. Directivity 0-2p
   - Tell what affects the directivity behaviour and what have you done
   in your design
+![Directivity plot](https://raw.githubusercontent.com/saragh21/EA-2-way-speaker-Design/main/g5_drn(1).svg)
 7. Passive cross-over network 0-2p
   -  Present a LCR crossover circuit that would utilize the same filter
   characteristics as the digital filter that you have used.
