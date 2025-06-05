@@ -1,5 +1,7 @@
 1. Introduction (0-0.5)p
-  - Tell shortly what was done and what is the report about  
+
+This report presents the design, implementation and measurements of group 5’s loudspeaker. The objective of this project was to build a studio monitor with a flat frequency response, smooth directivity and a good bass response. This report discusses the design choices made during the project, proposes a passive crossover network with similar characteristics  to the digital filter used and discusses potential improvements and the next steps towards a better prototype.
+
 3. Equivalent circuit of implementation 0-2p
   - Present the equivalent circuit of your design
   - Analyse the circuit and estimate the low frequency behaviour
