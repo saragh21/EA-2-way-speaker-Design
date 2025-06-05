@@ -12,7 +12,9 @@ This report presents the design, implementation and measurements of group 5’s 
   your design?
 5. Linear distortion 0-2p
   - Tell about the linear distortion behaviour of your loudspeaker.
+    The woofer's response is relatively flat except for a noticeable peak around 270 Hz. We suspect this may be due to damage to the driver, possibly caused by an impact during transport, since no changes were made to the build between the measurements when this occured.
   - What you did and why to obtain the performance?
+    
 
 ![Linear directivity](https://github.com/saragh21/EA-2-way-speaker-Design/blob/main/g5_ldnlfp.svg)
 
